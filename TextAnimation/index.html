@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .textDiv {
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .container .para {
+            color: #616161;
+            font-size: 4rem;
+            text-align: center;
+            animation: anime 10s ease-in-out 0s infinite;
+        }
+
+        @keyframes anime {
+            0% {
+                transform: translateX(100%);
+            }
+            50% {
+                transform: translateX(0%);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="textDiv">
+            <p class="para" id="textContainer"></p>
+        </div>
+    </div>
+
+    <script>
+        let texts = ["I am a web developer", "I am Ronit", "Thanks to Visit my page"];
+        let i = 0;
+
+        let textContainer = document.getElementById('textContainer');
+        textContainer.innerText = texts[0];
+
+        setInterval(() => {
+            if (i < 2) {
+                i++
+                console.log(i);
+                textContainer.innerText = texts[i];
+            } else {
+                i = 0;
+                console.log(i);
+                textContainer.innerText = texts[i];
+            }
+        }, 10000);
+
+
+    </script>
+</body>
+
+</html>
