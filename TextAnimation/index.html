@@ -8,22 +8,32 @@
     <title>Document</title>
     <style>
         .container {
-            height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
+            position: relative;
         }
 
         .textDiv {
             width: 100%;
             overflow: hidden;
+            border-right: 5px solid red;
+            border-radius: 0 5px 5px 0;
+        }
+        .textDiv::before{
+            content: '';
+            width: 5px;
+            height: 100%;
+            border-left: 5px solid red;
+            border-radius: 5px 0 0 5px;
+            position: absolute;
         }
 
         .container .para {
             color: #616161;
             font-size: 4rem;
             text-align: center;
-            animation: anime 10s ease-in-out 0s infinite;
+            animation: anime 8s ease-in-out 0s infinite;
         }
 
         @keyframes anime {
@@ -35,6 +45,15 @@
             }
             100% {
                 transform: translateX(-100%);
+            }
+        }
+
+        @media screen and (max-width:680px ) {
+            .textDiv{
+                height: 180px;
+            }
+            .container .para{
+                font-size: 2.5rem;
             }
         }
     </style>
@@ -64,7 +83,7 @@
                 console.log(i);
                 textContainer.innerText = texts[i];
             }
-        }, 10000);
+        }, 8000);
 
 
     </script>
