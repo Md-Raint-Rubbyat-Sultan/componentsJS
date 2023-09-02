@@ -15,8 +15,12 @@ const Carousel = ({ items }) => {
     }
 
     const handelWindowSize = () => {
-        let size = window.innerWidth;
-        setCurrentWidth(size);
+        const size = window.innerWidth;
+        if (size < 1280) {
+            setCurrentWidth(size);
+        } else {
+            setCurrentWidth(1280);
+        }
     }
 
     useEffect(() => {
